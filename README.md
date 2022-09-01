@@ -1,16 +1,18 @@
 # ecommerce
 
-A new Flutter project.
+My project for ecommerce app using Flutter and Backend with Laravel.
+Food Delivery App Project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+# Flutter (Frontend)
+1. Creating UI with Futter
+2. Building architecture services and apis using Getx Statemanagement.
+3. Creating Models and Controller
+4. Integrating APIs 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Laravel (Backend)
+1. Making Dashboard UI
+2. Creating Database Schemas and optimizing relationships
+3. Creating UI's to insert data in database
+4. Exporting API's for  Frontend.
