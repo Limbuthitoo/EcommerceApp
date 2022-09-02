@@ -1,3 +1,6 @@
+import 'package:ecommerce/controllers/recommended_product_controller.dart';
+import 'package:ecommerce/routes/route_helper.dart';
+import 'package:ecommerce/utils/app_constant.dart';
 import 'package:ecommerce/utils/colors.dart';
 import 'package:ecommerce/utils/dimensions.dart';
 import 'package:ecommerce/widgets/app_top.dart';
@@ -5,24 +8,35 @@ import 'package:ecommerce/widgets/big_text.dart';
 import 'package:ecommerce/widgets/icon_and_text_widget.dart';
 import 'package:ecommerce/widgets/product_info_expendable.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RecommendedProductDetail extends StatelessWidget {
-  RecommendedProductDetail({Key? key}) : super(key: key);
+  final int pageId;
+  const RecommendedProductDetail({Key? key, required this.pageId})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var recommended =
+        Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
         physics: BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: Dimensions.height70,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppTop(
-                  icon: Icons.clear,
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(RouteHelper.getInitial());
+                  },
+                  child: AppTop(
+                    icon: Icons.clear,
+                  ),
                 ),
                 AppTop(icon: Icons.shopping_cart_outlined)
               ],
@@ -37,7 +51,7 @@ class RecommendedProductDetail extends StatelessWidget {
                       )),
                   child: Center(
                       child: BigText(
-                    text: "Product Name",
+                    text: recommended.name,
                     size: Dimensions.font26,
                   )),
                   width: double.maxFinite,
@@ -48,8 +62,8 @@ class RecommendedProductDetail extends StatelessWidget {
             backgroundColor: AppColors.yellowColor,
             expandedHeight: Dimensions.height300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                "assets/images/burger.png",
+              background: Image.network(
+                AppConstants.BASE_URL + AppConstants.UPLOADS + recommended.img,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -62,9 +76,7 @@ class RecommendedProductDetail extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    child: ProductInfoWidget(
-                        text:
-                            "A crusty layer of bread topped with a tangy tomato sauce, veggies/meat and layers of cheese are enough to make our mouths water. Yes, we are talking about our favourite pizza! This classic dish is always on our menus. Whether you make it at your home or order it in any restaurant or cafe, we simply can't get enough of it. And with the popularity that a pizza sees in India, we can also easily find this delicacy with street vendors! While there is a whole range of pizzas for us to devour, I think we all can agree that for non-vegetarians, nothing comes close to the comfort of a chicken pizza. However, if you are bored of ordering that same classic chicken pizza, then it is time to give it a delicious spin with some peri-peri! A crusty layer of bread topped with a tangy tomato sauce, veggies/meat and layers of cheese are enough to make our mouths water. Yes, we are talking about our favourite pizza! This classic dish is always on our menus. Whether you make it at your home or order it in any restaurant or cafe, we simply can't get enough of it. And with the popularity that a pizza sees in India, we can also easily find this delicacy with street vendors! While there is a whole range of pizzas for us to devour, I think we all can agree that for non-vegetarians, nothing comes close to the comfort of a chicken pizza. However, if you are bored of ordering that same classic chicken pizza, then it is time to give it a delicious spin with some peri-peri!A crusty layer of bread topped with a tangy tomato sauce, veggies/meat and layers of cheese are enough to make our mouths water. Yes, we are talking about our favourite pizza! This classic dish is always on our menus. Whether you make it at your home or order it in any restaurant or cafe, we simply can't get enough of it. And with the popularity that a pizza sees in India, we can also easily find this delicacy with street vendors! While there is a whole range of pizzas for us to devour, I think we all can agree that for non-vegetarians, nothing comes close to the comfort of a chicken pizza. However, if you are bored of ordering that same classic chicken pizza, then it is time to give it a delicious spin with some peri-peri!A crusty layer of bread topped with a tangy tomato sauce, veggies/meat and layers of cheese are enough to make our mouths water. Yes, we are talking about our favourite pizza! This classic dish is always on our menus. Whether you make it at your home or order it in any restaurant or cafe, we simply can't get enough of it. And with the popularity that a pizza sees in India, we can also easily find this delicacy with street vendors! While there is a whole range of pizzas for us to devour, I think we all can agree that for non-vegetarians, nothing comes close to the comfort of a chicken pizza. However, if you are bored of ordering that same classic chicken pizza, then it is time to give it a delicious spin with some peri-peri!"),
+                    child: ProductInfoWidget(text: recommended.description),
                   ),
                 ],
               ),
@@ -93,7 +105,7 @@ class RecommendedProductDetail extends StatelessWidget {
                   width: Dimensions.width10,
                 ),
                 BigText(
-                  text: "\$12.88 " + " x " + " 0 ",
+                  text: "\$ ${recommended.price} X 0 ",
                   color: AppColors.mainBlackColor,
                   size: Dimensions.font26,
                 ),

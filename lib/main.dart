@@ -1,8 +1,11 @@
-import 'package:ecommerce/view/product/recommended_product_detail.dart';
+import 'package:ecommerce/controllers/popular_product_controller.dart';
+import 'package:ecommerce/controllers/recommended_product_controller.dart';
+import 'package:ecommerce/routes/route_helper.dart';
+import 'package:ecommerce/view/home/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'view/helper/dependencies.dart' as dep;
+import 'helper/dependencies.dart' as dep;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +19,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.find<PopularProductController>().getPopularProductList();
+    Get.find<RecommendedProductController>().getRecommendedProductList();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -23,7 +28,9 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.roboto().fontFamily,
         primarySwatch: Colors.blue,
       ),
-      home: RecommendedProductDetail(),
+      home: MainFoodPage(),
+      initialRoute: RouteHelper.initial,
+      getPages: RouteHelper.routes,
     );
   }
 }
