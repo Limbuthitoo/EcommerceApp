@@ -63,7 +63,7 @@ class CartController extends GetxController {
     return false;
   }
 
-  getQuantity(ProductModel product) {
+  int getQuantity(ProductModel product) {
     var quantity = 0;
     if (_items.containsKey(product.id)) {
       _items.forEach((key, value) {
@@ -73,5 +73,13 @@ class CartController extends GetxController {
       });
     }
     return quantity;
+  }
+
+  int get totalItems {
+    var totalQuantity = 0;
+    _items.forEach((key, value) {
+      totalQuantity += value.quantity!;
+    });
+    return totalQuantity;
   }
 }

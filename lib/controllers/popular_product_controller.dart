@@ -88,13 +88,9 @@ class PopularProductController extends GetxController {
           "the quantity is" +
           value.quantity.toString());
     });
-    // } else {
-    //   Get.snackbar(
-    //     "Item count",
-    //     "You should at least add an item in the cart !",
-    //     backgroundColor: AppColors.mainColor,
-    //     colorText: Colors.white,
-    //   );
-    // }
+  }
+
+  int get totalItems {
+    return _cart.totalItems;
   }
 }

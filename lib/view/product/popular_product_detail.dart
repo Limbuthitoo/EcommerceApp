@@ -59,7 +59,7 @@ class PopularProductDetail extends StatelessWidget {
                           Get.toNamed(RouteHelper.initial);
                         },
                         child: const AppTop(icon: Icons.arrow_back_ios)),
-                    const AppTop(icon: Icons.shopping_cart_outlined)
+                    AppTop(icon: Icons.shopping_cart_outlined)
                   ],
                 )),
 
