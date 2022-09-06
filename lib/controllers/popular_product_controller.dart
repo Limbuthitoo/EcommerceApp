@@ -14,7 +14,6 @@ class PopularProductController extends GetxController {
 
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
-
   int _quantity = 0;
   int get quaintity => _quantity;
   int _intCartItems = 0;
@@ -88,6 +87,7 @@ class PopularProductController extends GetxController {
           "the quantity is" +
           value.quantity.toString());
     });
+    update();
   }
 
   int get totalItems {

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
-class AppTop extends StatelessWidget {
+class AppIcon extends StatelessWidget {
   final IconData icon;
   final Color bgColor;
   final Color iconColor;
   final double size;
   final double iconSize;
-  const AppTop(
+  const AppIcon(
       {Key? key,
       required this.icon,
       this.bgColor = const Color(0xFFfcf4e4),

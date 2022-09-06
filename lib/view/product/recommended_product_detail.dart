@@ -34,11 +34,11 @@ class RecommendedProductDetail extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(RouteHelper.getInitial());
                   },
-                  child: AppTop(
+                  child: AppIcon(
                     icon: Icons.clear,
                   ),
                 ),
-                AppTop(icon: Icons.shopping_cart_outlined)
+                AppIcon(icon: Icons.shopping_cart_outlined)
               ],
             ),
             bottom: PreferredSize(
@@ -95,11 +95,14 @@ class RecommendedProductDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppTop(
-                  iconSize: Dimensions.iconSize24,
-                  icon: Icons.remove,
-                  bgColor: AppColors.mainColor,
-                  iconColor: Colors.white,
+                GestureDetector(
+                  onTap: () {},
+                  child: AppIcon(
+                    iconSize: Dimensions.iconSize24,
+                    icon: Icons.remove,
+                    bgColor: AppColors.mainColor,
+                    iconColor: Colors.white,
+                  ),
                 ),
                 SizedBox(
                   width: Dimensions.width10,
@@ -112,11 +115,14 @@ class RecommendedProductDetail extends StatelessWidget {
                 SizedBox(
                   width: Dimensions.width10,
                 ),
-                AppTop(
-                  iconSize: Dimensions.iconSize24,
-                  icon: Icons.add,
-                  bgColor: AppColors.mainColor,
-                  iconColor: Colors.white,
+                GestureDetector(
+                  onTap: () {},
+                  child: AppIcon(
+                    iconSize: Dimensions.iconSize24,
+                    icon: Icons.add,
+                    bgColor: AppColors.mainColor,
+                    iconColor: Colors.white,
+                  ),
                 ),
               ],
             ),
