@@ -1,6 +1,8 @@
 import 'package:ecommerce/controllers/popular_product_controller.dart';
 import 'package:ecommerce/controllers/recommended_product_controller.dart';
 import 'package:ecommerce/routes/route_helper.dart';
+import 'package:ecommerce/view/cart/cart_page.dart';
+import 'package:ecommerce/view/home/home_page.dart';
 import 'package:ecommerce/view/home/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,8 +30,8 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.roboto().fontFamily,
         primarySwatch: Colors.blue,
       ),
-      home: MainFoodPage(),
-      initialRoute: RouteHelper.initial,
+      home: HomePage(),
+      initialRoute: RouteHelper.getInitial(),
       getPages: RouteHelper.routes,
     );
   }

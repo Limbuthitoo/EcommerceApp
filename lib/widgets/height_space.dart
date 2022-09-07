@@ -9,7 +9,7 @@ class HeightSpace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Dimensions.height20,
+      height: Dimensions.height10,
     );
   }
 }

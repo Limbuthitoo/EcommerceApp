@@ -1,3 +1,5 @@
+import 'package:ecommerce/view/cart/cart_page.dart';
+import 'package:ecommerce/view/home/home_page.dart';
 import 'package:ecommerce/view/home/main_page.dart';
 import 'package:ecommerce/view/product/popular_product_detail.dart';
 import 'package:ecommerce/view/product/recommended_product_detail.dart';
@@ -7,27 +9,39 @@ class RouteHelper {
   static const String initial = "/";
   static const String popularProduct = "/popular-product";
   static const String recommendedProduct = "/recommended-product";
+  static const String cartPage = "/cart-page";
 
   static String getInitial() => '$initial';
-  static String getPopularFood(int pageId) => '$popularProduct?pageId=$pageId';
-  static String getRecommendedFood(int pageId) =>
-      '$recommendedProduct?pageId=$pageId';
+  static String getPopularFood(int pageId, String page) =>
+      '$popularProduct?pageId=$pageId&page=$page';
+  static String getRecommendedFood(int pageId, String page) =>
+      '$recommendedProduct?pageId=$pageId&page=$page';
+  static String getCartPage() => "$cartPage";
 
   static List<GetPage> routes = [
-    GetPage(name: initial, page: () => MainFoodPage()),
+    GetPage(name: initial, page: () => HomePage()),
     GetPage(
         name: popularProduct,
         page: () {
           var pageId = Get.parameters['pageId'];
-          return PopularProductDetail(pageId: int.parse(pageId!));
+          var page = Get.parameters['page'];
+          return PopularProductDetail(pageId: int.parse(pageId!), page: page!);
         },
         transition: Transition.fadeIn),
     GetPage(
         name: recommendedProduct,
         page: () {
           var pageId = Get.parameters['pageId'];
-          return RecommendedProductDetail(pageId: int.parse(pageId!));
+          var page = Get.parameters['page'];
+          return RecommendedProductDetail(
+              pageId: int.parse(pageId!), page: page!);
         },
         transition: Transition.fadeIn),
+    GetPage(
+        name: cartPage,
+        page: () {
+          return CartPage();
+        },
+        transition: Transition.fadeIn)
   ];
 }
