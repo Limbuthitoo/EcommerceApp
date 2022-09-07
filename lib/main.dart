@@ -4,6 +4,7 @@ import 'package:ecommerce/routes/route_helper.dart';
 import 'package:ecommerce/view/cart/cart_page.dart';
 import 'package:ecommerce/view/home/home_page.dart';
 import 'package:ecommerce/view/home/main_page.dart';
+import 'package:ecommerce/view/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,10 +29,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: GoogleFonts.roboto().fontFamily,
-        primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
-      initialRoute: RouteHelper.getInitial(),
+      // home: SplashScreen(),
+      initialRoute: RouteHelper.getSplashPage(),
       getPages: RouteHelper.routes,
     );
   }

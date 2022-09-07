@@ -53,5 +53,5 @@ class Dimensions {
   static double bottomHeightBar = screenHeight / 6.7;
 
   //maxcrossaxisextent
-  static double crossAxisExtent = screenWidth / 1.2;
+  static double crossAxisExtent = screenWidth / 1.25;
 }

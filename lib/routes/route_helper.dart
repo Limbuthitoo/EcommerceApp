@@ -3,14 +3,17 @@ import 'package:ecommerce/view/home/home_page.dart';
 import 'package:ecommerce/view/home/main_page.dart';
 import 'package:ecommerce/view/product/popular_product_detail.dart';
 import 'package:ecommerce/view/product/recommended_product_detail.dart';
+import 'package:ecommerce/view/splash/splash_page.dart';
 import 'package:get/get.dart';
 
 class RouteHelper {
+  static const String splashPage = "/splash-page";
   static const String initial = "/";
   static const String popularProduct = "/popular-product";
   static const String recommendedProduct = "/recommended-product";
   static const String cartPage = "/cart-page";
 
+  static String getSplashPage() => '$splashPage';
   static String getInitial() => '$initial';
   static String getPopularFood(int pageId, String page) =>
       '$popularProduct?pageId=$pageId&page=$page';
@@ -19,6 +22,7 @@ class RouteHelper {
   static String getCartPage() => "$cartPage";
 
   static List<GetPage> routes = [
+    GetPage(name: splashPage, page: () => SplashScreen()),
     GetPage(name: initial, page: () => HomePage()),
     GetPage(
         name: popularProduct,
