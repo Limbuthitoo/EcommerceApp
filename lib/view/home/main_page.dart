@@ -6,7 +6,9 @@ import 'package:ecommerce/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
 class MainFoodPage extends StatefulWidget {
-  MainFoodPage({Key? key}) : super(key: key);
+  const MainFoodPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MainFoodPage> createState() => _MainFoodPageState();
@@ -46,18 +48,21 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       )
                     ],
                   ),
-                  Center(
-                    child: Container(
-                      width: Dimensions.height45,
-                      height: Dimensions.height45,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(Dimensions.radius15),
-                        color: AppColors.mainColor,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: Dimensions.height45,
+                        height: Dimensions.height45,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius15),
+                          color: AppColors.mainColor,
+                        ),
+                        child: Icon(Icons.search,
+                            color: Colors.white, size: Dimensions.iconSize24),
                       ),
-                      child: Icon(Icons.search,
-                          color: Colors.white, size: Dimensions.iconSize24),
-                    ),
+                    ],
                   ),
                 ],
               ),

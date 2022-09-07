@@ -120,10 +120,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         //List of item and images
         GetBuilder<RecommendedProductController>(builder: (recommendedProduct) {
           return recommendedProduct.isLoaded
-              ? ListView.builder(
+              ? GridView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: recommendedProduct.recommendedProductList.length,
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: Dimensions.crossAxisExtent,
+                      childAspectRatio: 3.5 / 5,
+                      crossAxisSpacing: Dimensions.width10,
+                      mainAxisSpacing: Dimensions.width10),
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
@@ -131,10 +136,28 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       },
                       child: Container(
                         margin: EdgeInsets.only(
-                            left: Dimensions.width20,
-                            right: Dimensions.width20,
-                            bottom: Dimensions.height10),
-                        child: Row(
+                          left: Dimensions.width10,
+                          right: Dimensions.width10,
+                          bottom: Dimensions.height10,
+                        ),
+                        padding: EdgeInsets.only(top: Dimensions.height15),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radius20),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Color(0xFFe8e8e8),
+                                  offset: Offset(0, 5),
+                                  blurRadius: 5.0),
+                              BoxShadow(
+                                color: Color(0xFFe8e8e8),
+                              ),
+                              BoxShadow(
+                                color: Color(0xFFe8e8e8),
+                              )
+                            ]),
+                        child: Column(
                           children: [
                             //image Section
                             Container(
@@ -158,14 +181,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             Expanded(
                               child: Container(
                                 height: Dimensions.listViewTextContSize,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topRight:
-                                          Radius.circular(Dimensions.radius20),
-                                      bottomRight:
-                                          Radius.circular(Dimensions.radius20)),
-                                  color: Colors.white,
-                                ),
                                 child: Padding(
                                   padding: EdgeInsets.only(
                                       left: Dimensions.width10,
@@ -198,12 +213,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                               icon: Icons.location_on,
                                               text: "1.5km",
                                               iconColor: AppColors.mainColor),
-                                          IconAndTextWidget(
-                                              icon: Icons.access_time_rounded,
-                                              text: "25min",
-                                              iconColor: AppColors.iconColor2),
                                         ],
-                                      )
+                                      ),
+                                      SizedBox(
+                                        height: Dimensions.height10,
+                                      ),
+                                      IconAndTextWidget(
+                                          icon: Icons.access_time_rounded,
+                                          text: "25min",
+                                          iconColor: AppColors.iconColor2),
                                     ],
                                   ),
                                 ),

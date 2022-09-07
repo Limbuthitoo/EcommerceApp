@@ -43,7 +43,7 @@ class Dimensions {
   static double top45 = screenHeight / 17.84;
 
   //list view size
-  static double listViewImgSize = screenWidth / 3.275;
+  static double listViewImgSize = screenWidth / 2.85;
   static double listViewTextContSize = screenWidth / 3.93;
 
   //popular product
@@ -51,4 +51,7 @@ class Dimensions {
 
   //bottom height
   static double bottomHeightBar = screenHeight / 6.7;
+
+  //maxcrossaxisextent
+  static double crossAxisExtent = screenWidth / 1.2;
 }
