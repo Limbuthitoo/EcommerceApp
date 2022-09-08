@@ -1,4 +1,5 @@
 import 'package:ecommerce/utils/colors.dart';
+import 'package:ecommerce/view/cart/cart_history.dart';
 import 'package:ecommerce/view/home/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +17,7 @@ class _HomePageState extends State<HomePage> {
     Container(
       child: Center(child: Text("NextPage 1")),
     ),
-    Container(
-      child: Center(child: Text("NextPage 2")),
-    ),
+    CartHistory(),
     Container(
       child: Center(child: Text("NextPage 3")),
     ),

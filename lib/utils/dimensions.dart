@@ -54,4 +54,7 @@ class Dimensions {
 
   //maxcrossaxisextent
   static double crossAxisExtent = screenWidth / 1.25;
+
+  //Splas Screen Dimensions
+  static double splashImg = screenHeight / 3.15;
 }

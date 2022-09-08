@@ -13,6 +13,11 @@ class CartController extends GetxController {
 
   Map<int, CartModel> get items => _items;
 
+  List<CartModel> storageItems = [];
+  /*
+  only for storage in sharedpreference
+  */
+
 //Adding Items in the Cart
   void addItem(ProductModel product, int quantity) {
     var totalQuantity = 0;
@@ -57,6 +62,7 @@ class CartController extends GetxController {
         );
       }
     }
+    cartRepo.addToCartList(getItems);
     update();
   }
 
@@ -103,5 +109,48 @@ class CartController extends GetxController {
       total += value.quantity! * value.price!;
     });
     return total;
+  }
+
+//Getting local storage CartDatalist
+  List<CartModel> getCartData() {
+    setCart = cartRepo.getCartList();
+    return storageItems;
+  }
+
+//Setting Items in storageItems to get Cart Data list
+  set setCart(List<CartModel> items) {
+    storageItems = items;
+
+    for (int i = 0; i < storageItems.length; i++) {
+      _items.putIfAbsent(storageItems[i].product!.id!, () => storageItems[i]);
+    }
+  }
+
+  //Adding cart history and calling clear() function to clear cart history
+  void addToHistory() {
+    cartRepo.addToCartHistoryList();
+    clear();
+  }
+
+  //function to clear the cart history
+  void clear() {
+    _items = {};
+    update();
+  }
+
+  //providing cart history list to cartRepo
+  List<CartModel> getCartHistoryList() {
+    return cartRepo.getCartHistoryList();
+  }
+
+  //setitems from carthistory page during onTap One More
+  set setItems(Map<int, CartModel> setItems) {
+    _items = {};
+    _items = setItems;
+  }
+
+  void addToCartList() {
+    cartRepo.addToCartList(getItems);
+    update();
   }
 }

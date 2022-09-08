@@ -9,4 +9,8 @@ class AppConstants {
   static const String UPLOADS = "/uploads/";
 
   static const String TOKEN = "BIGFoodToken";
+
+  static const String CART_LIST = "Cart-List";
+
+  static const String CART_HISTORY_LIST = "cart-history-list";
 }
