@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommerce/controllers/popular_product_controller.dart';
 import 'package:ecommerce/controllers/recommended_product_controller.dart';
@@ -5,7 +6,6 @@ import 'package:ecommerce/routes/route_helper.dart';
 import 'package:ecommerce/utils/app_constant.dart';
 import 'package:ecommerce/utils/colors.dart';
 import 'package:ecommerce/utils/dimensions.dart';
-import 'package:ecommerce/view/product/popular_product_detail.dart';
 import 'package:ecommerce/widgets/app_comment_rating.dart';
 import 'package:ecommerce/widgets/big_text.dart';
 import 'package:ecommerce/widgets/height_space.dart';
@@ -129,7 +129,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     removeTop: true,
                     child: GridView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount:
                           recommendedProduct.recommendedProductList.length,
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -180,7 +180,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                     color: const Color(0xFF69c5df),
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
-                                      image: NetworkImage(
+                                      image: CachedNetworkImageProvider(
                                           AppConstants.BASE_URL +
                                               AppConstants.UPLOADS +
                                               recommendedProduct
@@ -305,7 +305,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     : const Color(0xFF9294cc),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(AppConstants.BASE_URL +
+                  image: CachedNetworkImageProvider(AppConstants.BASE_URL +
                       AppConstants.UPLOADS +
                       popularProduct.img),
                 ),

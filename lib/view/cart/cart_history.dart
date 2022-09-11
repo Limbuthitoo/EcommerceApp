@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/base/no_data_page.dart';
 import 'package:ecommerce/controllers/cart_controller.dart';
 import 'package:ecommerce/model/cart_model.dart';
@@ -84,9 +85,9 @@ class CartHistory extends StatelessWidget {
                   ? Expanded(
                       child: Container(
                         margin: EdgeInsets.only(
-                          top: Dimensions.height20,
-                          left: Dimensions.width20,
-                          right: Dimensions.width20,
+                          top: Dimensions.height10,
+                          left: Dimensions.width10,
+                          right: Dimensions.width10,
                         ),
                         child: MediaQuery.removePadding(
                           context: context,
@@ -119,11 +120,11 @@ class CartHistory extends StatelessWidget {
                                               return index <= 2
                                                   ? Container(
                                                       height:
-                                                          Dimensions.height45 *
-                                                              2,
+                                                          Dimensions.height20 *
+                                                              4,
                                                       width:
-                                                          Dimensions.height45 *
-                                                              2,
+                                                          Dimensions.height20 *
+                                                              4,
                                                       margin: EdgeInsets.only(
                                                           right: Dimensions
                                                               .width10),
@@ -134,7 +135,7 @@ class CartHistory extends StatelessWidget {
                                                                 2),
                                                         image: DecorationImage(
                                                           fit: BoxFit.cover,
-                                                          image: NetworkImage(
+                                                          image: CachedNetworkImageProvider(
                                                               AppConstants
                                                                       .BASE_URL +
                                                                   AppConstants

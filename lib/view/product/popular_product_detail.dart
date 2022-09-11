@@ -1,10 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controllers/cart_controller.dart';
 import 'package:ecommerce/controllers/popular_product_controller.dart';
 import 'package:ecommerce/routes/route_helper.dart';
 import 'package:ecommerce/utils/app_constant.dart';
 import 'package:ecommerce/utils/colors.dart';
 import 'package:ecommerce/utils/dimensions.dart';
-import 'package:ecommerce/view/cart/cart_page.dart';
 import 'package:ecommerce/widgets/app_comment_rating.dart';
 import 'package:ecommerce/widgets/app_top.dart';
 import 'package:ecommerce/widgets/big_text.dart';
@@ -43,7 +43,7 @@ class PopularProductDetail extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(AppConstants.BASE_URL +
+                    image: CachedNetworkImageProvider(AppConstants.BASE_URL +
                         AppConstants.UPLOADS +
                         product.img),
                   ),

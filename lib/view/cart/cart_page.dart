@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/base/no_data_page.dart';
 import 'package:ecommerce/controllers/cart_controller.dart';
 import 'package:ecommerce/controllers/popular_product_controller.dart';
@@ -122,12 +123,14 @@ class CartPage extends StatelessWidget {
                                                 color: Colors.white,
                                                 image: DecorationImage(
                                                     fit: BoxFit.cover,
-                                                    image: NetworkImage(
-                                                        AppConstants.BASE_URL +
+                                                    image:
+                                                        CachedNetworkImageProvider(
                                                             AppConstants
-                                                                .UPLOADS +
-                                                            _cartList[index]
-                                                                .img!)),
+                                                                    .BASE_URL +
+                                                                AppConstants
+                                                                    .UPLOADS +
+                                                                _cartList[index]
+                                                                    .img!)),
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                         Dimensions.radius20),

@@ -1,6 +1,5 @@
 import 'package:ecommerce/view/cart/cart_page.dart';
 import 'package:ecommerce/view/home/home_page.dart';
-import 'package:ecommerce/view/home/main_page.dart';
 import 'package:ecommerce/view/product/popular_product_detail.dart';
 import 'package:ecommerce/view/product/recommended_product_detail.dart';
 import 'package:ecommerce/view/splash/splash_page.dart';

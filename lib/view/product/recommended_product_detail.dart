@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controllers/cart_controller.dart';
 import 'package:ecommerce/controllers/popular_product_controller.dart';
 import 'package:ecommerce/controllers/recommended_product_controller.dart';
@@ -110,12 +111,13 @@ class RecommendedProductDetail extends StatelessWidget {
               backgroundColor: AppColors.yellowColor,
               expandedHeight: Dimensions.height300,
               flexibleSpace: FlexibleSpaceBar(
-                background: Image.network(
-                  AppConstants.BASE_URL +
+                background: CachedNetworkImage(
+                  imageUrl: AppConstants.BASE_URL +
                       AppConstants.UPLOADS +
                       recommended.img,
-                  width: double.maxFinite,
                   fit: BoxFit.cover,
+                  width: double.maxFinite,
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),
             ),
