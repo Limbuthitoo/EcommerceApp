@@ -1,4 +1,6 @@
 import 'package:ecommerce/utils/colors.dart';
+import 'package:ecommerce/view/account/account_page.dart';
+import 'package:ecommerce/view/auth/signin_page.dart';
 import 'package:ecommerce/view/cart/cart_history.dart';
 import 'package:ecommerce/view/home/main_page.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +16,9 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   List pages = [
     MainFoodPage(),
-    Container(
-      child: Center(child: Text("NextPage 1")),
-    ),
+    SigninPage(),
     CartHistory(),
-    Container(
-      child: Center(child: Text("NextPage 3")),
-    ),
+    AccountPage(),
   ];
 
   void onTapNav(int index) {
