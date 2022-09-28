@@ -1,3 +1,4 @@
+import 'package:ecommerce/base/show_custom_message.dart';
 import 'package:ecommerce/utils/colors.dart';
 import 'package:ecommerce/utils/dimensions.dart';
 import 'package:ecommerce/widgets/app_text_field.dart';
@@ -17,6 +18,33 @@ class SignupPage extends StatelessWidget {
     var nameController = TextEditingController();
     var phoneController = TextEditingController();
     var signUpImages = ['t.png', 'f.png', 'g.png'];
+
+    //Registration Validation
+    void _registration() {
+      String name = nameController.text.trim();
+      String phone = phoneController.text.trim();
+      String email = emailController.text.trim();
+      String password = passwordController.text.trim();
+
+      if (email.isEmpty) {
+        showCustomMessage("Type in your email address", title: "Email");
+      } else if (!GetUtils.isEmail(email)) {
+        showCustomMessage("Type in your valid email address",
+            title: "Valid email address");
+      } else if (phone.isEmpty) {
+        showCustomMessage("Type in your phone number", title: "Phone");
+      } else if (name.isEmpty) {
+        showCustomMessage("Type in your name", title: "Name");
+      } else if (password.isEmpty) {
+        showCustomMessage("Type in your password", title: "Password");
+      } else if (password.length < 6) {
+        showCustomMessage("Password cannot be less than six characters",
+            title: "Password");
+      } else {
+        showCustomMessage("Registration Successful", title: "Perfect");
+      }
+    }
+
     return Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -78,18 +106,23 @@ class SignupPage extends StatelessWidget {
               height: Dimensions.height30,
             ),
 
-            Container(
-              width: Dimensions.screenWidth / 2,
-              height: Dimensions.screenHeight / 13,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius30),
-                color: AppColors.mainColor,
-              ),
-              child: Center(
-                child: BigText(
-                  text: "Sign Up",
-                  color: Colors.white,
-                  size: Dimensions.font10 + Dimensions.font20 / 2,
+            GestureDetector(
+              onTap: () {
+                _registration();
+              },
+              child: Container(
+                width: Dimensions.screenWidth / 2,
+                height: Dimensions.screenHeight / 13,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius30),
+                  color: AppColors.mainColor,
+                ),
+                child: Center(
+                  child: BigText(
+                    text: "Sign Up",
+                    color: Colors.white,
+                    size: Dimensions.font10 + Dimensions.font20 / 2,
+                  ),
                 ),
               ),
             ),

@@ -15,8 +15,6 @@ class SigninPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
-    var nameController = TextEditingController();
-    var phoneController = TextEditingController();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -68,10 +66,10 @@ class SigninPage extends StatelessWidget {
             ),
             //phone text field
             AppTextField(
-                keys: TextInputType.number,
-                hintText: "Phone",
+                keys: TextInputType.emailAddress,
+                hintText: "email",
                 icon: Icons.phone,
-                textController: phoneController),
+                textController: emailController),
             SizedBox(
               height: Dimensions.height20,
             ),
