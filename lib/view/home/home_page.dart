@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   List pages = [
     MainFoodPage(),
-    SigninPage(),
+    Container(),
     CartHistory(),
     AccountPage(),
   ];

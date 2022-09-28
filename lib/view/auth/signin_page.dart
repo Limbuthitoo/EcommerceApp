@@ -37,7 +37,7 @@ class SigninPage extends StatelessWidget {
       } else {
         authController.login(email, password).then((status) {
           if (status.isSuccess) {
-            Get.offNamed(RouteHelper.getCartPage());
+            Get.offNamed(RouteHelper.getInitial());
           } else {
             showCustomMessage(status.message);
           }

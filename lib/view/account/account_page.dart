@@ -139,6 +139,8 @@ class AccountPage extends StatelessWidget {
                                         Get.find<AuthController>()
                                             .clearSharedData();
                                         Get.find<CartController>().clear();
+                                        Get.find<CartController>()
+                                            .clearCartHistory();
                                         Get.offNamed(
                                             RouteHelper.getSignInPage());
                                       } else {
