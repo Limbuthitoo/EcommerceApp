@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/base/no_data_page.dart';
+import 'package:ecommerce/controllers/auth_controller.dart';
 import 'package:ecommerce/controllers/cart_controller.dart';
 import 'package:ecommerce/controllers/popular_product_controller.dart';
 import 'package:ecommerce/controllers/recommended_product_controller.dart';
@@ -300,8 +301,12 @@ class CartPage extends StatelessWidget {
                         // Add to cart button
                         GestureDetector(
                           onTap: () {
-                            print("Tapped Right Now");
-                            cartController.addToHistory();
+                            if (Get.find<AuthController>().userLoggedIn()) {
+                              print("Tapped Right Now");
+                              cartController.addToHistory();
+                            } else {
+                              Get.toNamed(RouteHelper.getSignInPage());
+                            }
                           },
                           child: Container(
                             padding: EdgeInsets.only(
