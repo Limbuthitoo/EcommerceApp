@@ -20,7 +20,7 @@ class _ProductInfoWidgetState extends State<ProductInfoWidget> {
 
   bool hiddenText = true;
 
-  double textHeight = Dimensions.screenHeight / 5.63;
+  double textHeight = Dimensions.screenHeight / 2.5;
 
   @override
   void initState() {

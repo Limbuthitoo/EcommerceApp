@@ -92,22 +92,27 @@ class RecommendedProductDetail extends StatelessWidget {
                 ],
               ),
               bottom: PreferredSize(
+                  preferredSize: Size.fromHeight(Dimensions.height20),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(Dimensions.radius20),
-                          topRight: Radius.circular(Dimensions.radius20),
-                        )),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(Dimensions.radius20),
+                        topRight: Radius.circular(Dimensions.radius20),
+                      ),
+                    ),
+                    width: double.maxFinite,
+                    padding: EdgeInsets.only(
+                        top: 5,
+                        right: Dimensions.width15,
+                        left: Dimensions.width15,
+                        bottom: 10),
                     child: Center(
                         child: BigText(
                       text: recommended.name,
                       size: Dimensions.font26,
                     )),
-                    width: double.maxFinite,
-                    padding: const EdgeInsets.only(top: 5, bottom: 10),
-                  ),
-                  preferredSize: Size.fromHeight(Dimensions.height20)),
+                  )),
               pinned: true,
               backgroundColor: AppColors.yellowColor,
               expandedHeight: Dimensions.height45 * 9,
