@@ -28,7 +28,7 @@ class RecommendedProductDetail extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         body: CustomScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
               automaticallyImplyLeading: false,
@@ -44,7 +44,7 @@ class RecommendedProductDetail extends StatelessWidget {
                         Get.toNamed(RouteHelper.getInitial());
                       }
                     },
-                    child: AppIcon(
+                    child: const AppIcon(
                       icon: Icons.clear,
                     ),
                   ),
@@ -60,7 +60,7 @@ class RecommendedProductDetail extends StatelessWidget {
                       },
                       child: Stack(
                         children: [
-                          AppIcon(icon: Icons.shopping_cart_outlined),
+                          const AppIcon(icon: Icons.shopping_cart_outlined),
                           Get.find<PopularProductController>().totalItems >= 1
                               ? Positioned(
                                   right: 0,
@@ -82,7 +82,8 @@ class RecommendedProductDetail extends StatelessWidget {
                                         .toString(),
                                     size: 12,
                                     color: Colors.white,
-                                  ))
+                                  ),
+                                )
                               : Container()
                         ],
                       ),
@@ -104,12 +105,12 @@ class RecommendedProductDetail extends StatelessWidget {
                       size: Dimensions.font26,
                     )),
                     width: double.maxFinite,
-                    padding: EdgeInsets.only(top: 5, bottom: 10),
+                    padding: const EdgeInsets.only(top: 5, bottom: 10),
                   ),
                   preferredSize: Size.fromHeight(Dimensions.height20)),
               pinned: true,
               backgroundColor: AppColors.yellowColor,
-              expandedHeight: Dimensions.height300,
+              expandedHeight: Dimensions.height45 * 9,
               flexibleSpace: FlexibleSpaceBar(
                 background: CachedNetworkImage(
                   imageUrl: AppConstants.BASE_URL +
@@ -117,7 +118,7 @@ class RecommendedProductDetail extends StatelessWidget {
                       recommended.img,
                   fit: BoxFit.cover,
                   width: double.maxFinite,
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),

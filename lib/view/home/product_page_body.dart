@@ -10,6 +10,7 @@ import 'package:ecommerce/widgets/app_comment_rating.dart';
 import 'package:ecommerce/widgets/big_text.dart';
 import 'package:ecommerce/widgets/height_space.dart';
 import 'package:ecommerce/widgets/icon_and_text_widget.dart';
+import 'package:ecommerce/widgets/search_text_field.dart';
 import 'package:ecommerce/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -49,6 +50,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SearchTextField(
+          hintText: "Search",
+          icon: Icons.search_outlined,
+          ontap: () {
+            Get.toNamed(RouteHelper.getCartPage());
+          },
+        ),
+        const SizedBox(
+          height: 20,
+        ),
         // Slider Section
         GetBuilder<PopularProductController>(builder: (popularProducts) {
           return popularProducts.isLoaded
@@ -90,7 +101,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           height: Dimensions.height30,
         ),
 
-        //Popular Item Text Heading
+        //Recommended Item Text Heading
         Container(
           margin: EdgeInsets.only(left: Dimensions.width30),
           child: Row(
@@ -112,7 +123,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               Container(
                 margin: const EdgeInsets.only(bottom: 2),
-                child: SmallText(text: "Food Pairing"),
+                child: SmallText(text: "Drinks for you"),
               ),
             ],
           ),
@@ -149,13 +160,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               right: Dimensions.width10 / 3,
                               bottom: Dimensions.height10,
                             ),
-                            padding: EdgeInsets.only(
-                                top: Dimensions.height15,
-                                bottom: Dimensions.height15),
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius:
-                                    BorderRadius.circular(Dimensions.radius20),
+                                    BorderRadius.circular(Dimensions.radius15),
                                 boxShadow: const [
                                   BoxShadow(
                                       color: Color(0xFFe8e8e8),
@@ -172,14 +180,14 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               children: [
                                 //image Section
                                 Container(
-                                  width: Dimensions.listViewImgSize,
-                                  height: Dimensions.listViewImgSize,
+                                  width: Dimensions.width30 * 8,
+                                  height: Dimensions.width30 * 5.5,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(
-                                        Dimensions.radius20),
-                                    color: const Color(0xFF69c5df),
+                                        Dimensions.radius15),
+                                    color: Colors.grey.shade300,
                                     image: DecorationImage(
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.contain,
                                       image: CachedNetworkImageProvider(
                                           AppConstants.BASE_URL +
                                               AppConstants.UPLOADS +
@@ -299,9 +307,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               margin: EdgeInsets.only(
                   left: Dimensions.width10, right: Dimensions.width10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius30),
+                borderRadius: BorderRadius.circular(Dimensions.radius15),
                 color: index.isEven
-                    ? const Color(0xFF69c5df)
+                    ? AppColors.yellowColor
                     : const Color(0xFF9294cc),
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -321,9 +329,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               margin: EdgeInsets.only(
                   left: Dimensions.width30,
                   right: Dimensions.width30,
-                  bottom: 35),
+                  bottom: Dimensions.width30),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius20),
+                  borderRadius: BorderRadius.circular(Dimensions.radius15),
                   color: Colors.white,
                   boxShadow: const [
                     BoxShadow(
@@ -341,13 +349,14 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     )
                   ]),
               child: Container(
-                  padding: EdgeInsets.only(
-                      top: Dimensions.height15,
-                      left: Dimensions.width15,
-                      right: Dimensions.width15),
-                  child: AppCommentRating(
-                    text: popularProduct.name,
-                  )),
+                padding: EdgeInsets.only(
+                    top: Dimensions.height10,
+                    left: Dimensions.width15,
+                    right: Dimensions.width15),
+                child: AppCommentRating(
+                  text: popularProduct.name,
+                ),
+              ),
             ),
           ),
         ],
