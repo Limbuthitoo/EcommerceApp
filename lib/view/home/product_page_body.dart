@@ -220,7 +220,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                             height: Dimensions.height10,
                                           ),
                                           SmallText(
-                                              text: "with cheese and spicy"),
+                                              text: "500ml to 1liter Bottle"),
                                           SizedBox(
                                             height: Dimensions.height10,
                                           ),
